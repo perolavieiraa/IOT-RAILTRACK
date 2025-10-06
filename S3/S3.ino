@@ -14,6 +14,12 @@ Serial.println ("\nConectado!");
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  if (WiFi.status() != WL_CONNECTED){
+Serial.begin(115200);
+Serial.println("Conectando ao WiFi"); 
+WiFi.begin(SSID,PASS);
+while(WiFi.status() != WL_CONNECTED){
+  Serial.print(".");
+  delay(200);
+  }
 }
