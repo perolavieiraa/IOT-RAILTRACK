@@ -1,1 +1,2 @@
-# IOT-RAILTACK
+O RailTrack é um sistema de monitoramento ferroviário que usa IoT para acompanhar, em tempo real, as condições dos trilhos e dos trens. Ele funciona com microcontroladores como o ESP32 e Arduino, conectados a sensores que medem vibração, temperatura, umidade e distância. Esses dados são enviados por Wi-Fi, e ficam salvos em um banco de dados na nuvem, como o MySQL. Na parte visual, o sistema tem um painel web feito em HTML, CSS e PHP, onde os dados são exibidos em tempo real, junto com alertas automáticos e relatórios. Com isso, é possível identificar falhas, prevenir acidentes e planejar manutenções com mais eficiência.
+O RailTrack mostra como a tecnologia IoT pode deixar o transporte ferroviário mais seguro, moderno e inteligente.
