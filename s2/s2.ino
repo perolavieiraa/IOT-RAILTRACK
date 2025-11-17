@@ -10,7 +10,7 @@ const char* password = "8120gv08";
 
 // Configurações MQTT
 const char* mqtt_server = "broker.escola.com"; //URL do hivemq
-const int mqtt_port = 1883;                    //PORT do hivemq
+const int mqtt_port = 8883;                    //PORT do hivemq
 const char* mqtt_user = "placa2-helena";       //Usuário criado no hivemq
 const char* mqtt_password = "Helena2025";      //Senha criada no hivemq
 
