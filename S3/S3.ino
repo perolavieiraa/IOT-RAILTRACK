@@ -1,10 +1,12 @@
 // CÓDIGO S3 - SA RAILTRACK
 
+// BIBLIOTECAS
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <PubSubClient.h>
 #include <Servo.h>
 
+// CONFIGURAÇÕES DE REDE E MQTT
 const char* ssid = "FIESC_IOT_EDU";
 const char* password = "8120gv08";
 
@@ -16,6 +18,7 @@ const char* mqtt_password = "Perola2025";
 WiFiClientSecure espClient;
 PubSubClient client(espClient);
 
+// PINOS E OBJETOS
 const int pinSensorPresenca = 15;
 const int pinLEDIlum = 2;
 const int pinServo1 = 4;
@@ -29,12 +32,14 @@ int posServo1 = 0;
 int posServo2 = 0;
 int sensorPresenca = 0;
 
+// TÓPICOS MQTT
 const char* topicPresenca = "RAILTRACK/S3/Presenca";
 const char* topicServo1 = "RAILTRACK/S3/Servo1";
 const char* topicServo2 = "RAILTRACK/S3/Servo2";
 const char* topicILum = "RAILTRACK/S3/ILum";
 const char* topicStatusLED = "RAILTRACK/S3/StatusLED";
 
+// FUNÇÃO DE CONEXÃO WI-FI
 void setup_wifi() {
   delay(10);
   WiFi.begin(ssid, password);
@@ -43,6 +48,7 @@ void setup_wifi() {
   }
 }
 
+// FUNÇÃO CALLBACK MQTT
 void callback(char* topic, byte* payload, unsigned int length) {
   String messageTemp;
   for (unsigned int i = 0; i < length; i++) {
@@ -77,6 +83,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
   }
 }
 
+// FUNÇÃO DE RECONEXÃO MQTT
 void reconnect() {
   while (!client.connected()) {
     if (client.connect("ESP32_S3_Client", mqtt_user, mqtt_password)) {
@@ -89,6 +96,8 @@ void reconnect() {
   }
 }
 
+
+// SETUP
 void setup() {
   Serial.begin(115200);
 
@@ -108,6 +117,7 @@ void setup() {
   client.setCallback(callback);
 }
 
+// LOOP PRINCIPAL
 void loop() {
   if (!client.connected()) {
     reconnect();
