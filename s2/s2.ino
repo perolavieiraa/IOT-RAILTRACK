@@ -7,13 +7,11 @@
 const char* ssid = "FIESC_IOT_EDU";
 const char* password = "8120gv08";
 
-
 // Configurações MQTT
 const char* mqtt_server = "broker.escola.com"; //URL do hivemq
 const int mqtt_port = 8883;                    //PORT do hivemq
 const char* mqtt_user = "placa2-helena";       //Usuário criado no hivemq
 const char* mqtt_password = "Helena2025";      //Senha criada no hivemq
-
 
 const int presenca2Pin = 14; 
 const int presenca4Pin = 27;  
@@ -21,18 +19,13 @@ const int ledIluminacaoPin = 2;
 Servo servo3;  
 const int servo3Pin = 13;
 
-
-
  const char* topic_presenca2 = "Railtrack/Sensores/Presenca2";
 const char* topic_presenca4 = "Railtrack/Sensores/Presenca4";
 const char* topic_led = "Railtrack/Atuadores/S2/LED"; 
 const char* topic_servo = "Railtrack/Atuadores/S2/Servo3";
 
-
 WiFiClientSecure espClient;
 PubSubClient client(espClient);
-
-
 
 unsigned long lastPublishTime = 0;
 const unsigned long publishInterval = 3000;  
