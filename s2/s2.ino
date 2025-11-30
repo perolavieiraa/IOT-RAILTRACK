@@ -13,13 +13,15 @@ const int mqtt_port = 8883;                    //PORT do hivemq
 const char* mqtt_user = "placa2-helena";       //Usuário criado no hivemq
 const char* mqtt_password = "Helena2025";      //Senha criada no hivemq
 
+//Declara pinos e o objeto servo
 const int presenca2Pin = 14; 
 const int presenca4Pin = 27;  
 const int ledIluminacaoPin = 2;  
 Servo servo3;  
 const int servo3Pin = 13;
 
- const char* topic_presenca2 = "Railtrack/Sensores/Presenca2";
+//Define os tópicos MQTT
+const char* topic_presenca2 = "Railtrack/Sensores/Presenca2";
 const char* topic_presenca4 = "Railtrack/Sensores/Presenca4";
 const char* topic_led = "Railtrack/Atuadores/S2/LED"; 
 const char* topic_servo = "Railtrack/Atuadores/S2/Servo3";
@@ -89,6 +91,7 @@ void reconnect() {
   }
 }
 
+//inicialização do dispositivo
 void setup() {
   Serial.begin(115200);
   client.setInsecure();
